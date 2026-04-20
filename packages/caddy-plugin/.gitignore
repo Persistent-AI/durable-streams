@@ -5,3 +5,4 @@ data/
 durable-streams-server
 durable-streams-server-static
 caddy
+durable-streams-data

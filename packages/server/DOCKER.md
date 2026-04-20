@@ -92,9 +92,7 @@ Once running, test it with curl:
 curl -X PUT http://localhost:4437/my-stream
 
 # Append data to the stream (use POST)
-curl -X POST http://localhost:4437/my-stream \
-  -H "Content-Type: application/octet-stream" \
-  -d "Hello, world!"
+curl -X POST http://localhost:4437/my-stream -H "Content-Type: application/octet-stream" -d "Hello, world\!"
 
 # Read the stream
 curl http://localhost:4437/my-stream
