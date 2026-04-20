@@ -16,7 +16,7 @@ const serverOptions = { port, host }
 if (dataDir) {
   const { FileBackedStreamStore } =
     await import("./packages/server/dist/index.js")
-  serverOptions.store = new FileBackedStreamStore(dataDir)
+  serverOptions.store = new FileBackedStreamStore({ dataDir })
 }
 
 const server = new DurableStreamTestServer(serverOptions)
