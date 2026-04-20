@@ -1,0 +1,66 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build outputs (will be rebuilt in Docker)
+dist
+**/dist
+*.tsbuildinfo
+
+# Development files
+.env
+.env.*
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testing
+coverage
+**/.turbo
+.vitest
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+!PROTOCOL.md
+docs
+
+# CI/CD
+.github
+.changeset
+
+# Examples and tests
+examples
+**/test
+**/*.test.ts
+**/*.test.js
+benchmarks
+
+# Other packages not needed for server
+packages/client-py
+packages/client-go
+packages/client-elixir
+packages/client-dotnet
+packages/client-swift
+packages/client-php
+packages/client-java
+packages/client-rust
+packages/client-rb
+packages/cli
+packages/caddy-plugin
+packages/client-conformance-tests
+packages/server-conformance-tests
+packages/benchmarks

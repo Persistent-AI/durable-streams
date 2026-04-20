@@ -1,0 +1,33 @@
+services:
+  durable-streams:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: durable-streams-server:latest
+    container_name: durable-streams-server
+    ports:
+      - "4437:4437"
+    volumes:
+      ## Persistent storage for stream data
+      - ./durable-streams-data:/data
+      ## Optional: Mount custom Caddyfile
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    environment:
+      # Optional environment variables
+      - TZ=UTC
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/durable-streams-server", "version"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    # Resource limits (adjust based on your needs)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 256M
